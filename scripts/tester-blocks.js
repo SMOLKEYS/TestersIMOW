@@ -1,7 +1,3 @@
-//Variables declared before everything.
-let effLength = 20
-
-
 //Global tester variable.
 //Used for eval calls.
 global.testers = {
@@ -15,6 +11,8 @@ const effectTester = extend(MessageBlock, "effect-tester", {})
 //Effect tester build. Contains building code.
 effectTester.buildType = () => {
     const build = extend(MessageBlock.MessageBuild, effectTester, {
+        
+        effLength: 20,
         
         buildConfiguration(table){
             this.super$buildConfiguration(table)
@@ -30,7 +28,16 @@ effectTester.buildType = () => {
             table.slider(1, 120, 1, effLength, a => {
                 effLength = a
             }).get().setWidth(125)
-            
+        },
+        
+        write(write){
+            this.super$write(write)
+            write.f(effLength)
+        },
+        
+        read(read, rev){
+            this.super$read(read, rev)
+            effLength = read.f()
         }
         
     })
