@@ -1,3 +1,8 @@
+//Variables declared before everything.
+let effLength = 20
+
+
+
 //Global tester variable.
 //Used for eval calls.
 global.testers = {
@@ -16,14 +21,17 @@ effectTester.buildType = () => {
             this.super$buildConfiguration(table)
             table.button(Icon.star, Styles.cleari, () => {
                 try{
-                    Vars.mods.scripts.runConsole("global.testers.effectTesterFx = new Effect(30, e => {" + this.message + "})")
+                    Vars.mods.scripts.runConsole("global.testers.effectTesterFx = new Effect(" + effLength + ", e => {" + this.message + "})")
                     global.testers.effectTesterFx.at(this.x, this.y)
                 }catch(err){
                     global.testers.error = err
                 }
-                
-                
             }).size(40)
+            table.row()
+            
+            table.slider(1, 120, 1, a => {
+                effLength = a
+            }).setWidth(125)
             
         }
         
