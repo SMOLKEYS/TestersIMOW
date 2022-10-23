@@ -31,7 +31,7 @@ effectTester.buildType = () => {
             
             table.slider(1, 120, 1, a => {
                 effLength = a
-            }).setWidth(125)
+            }).get().setWidth(125)
             
         }
         
