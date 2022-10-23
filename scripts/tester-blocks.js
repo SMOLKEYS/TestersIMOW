@@ -18,26 +18,26 @@ effectTester.buildType = () => {
             this.super$buildConfiguration(table)
             table.button(Icon.star, Styles.cleari, () => {
                 try{
-                    Vars.mods.scripts.runConsole("global.testers.effectTesterFx = new Effect(" + effLength + ", e => {" + this.message + "})")
+                    Vars.mods.scripts.runConsole("global.testers.effectTesterFx = new Effect(" + this.effLength + ", e => {" + this.message + "})")
                     global.testers.effectTesterFx.at(this.x, this.y)
                 }catch(err){
                     global.testers.error = err
                 }
             }).size(40)
             
-            table.slider(1, 120, 1, effLength, a => {
-                effLength = a
+            table.slider(1, 120, 1, this.effLength, a => {
+                this.effLength = a
             }).get().setWidth(125)
         },
         
         write(write){
             this.super$write(write)
-            write.f(effLength)
+            write.f(this.effLength)
         },
         
         read(read, rev){
             this.super$read(read, rev)
-            effLength = read.f()
+            this.effLength = read.f()
         }
         
     })
