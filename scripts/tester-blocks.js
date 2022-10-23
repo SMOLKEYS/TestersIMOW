@@ -23,7 +23,7 @@ effectTester.buildType = () => {
                 }
                 
                 
-            })
+            }).size(40)
             
         }
         
