@@ -27,7 +27,7 @@ effectTester.buildType = () => {
                 }
             }).size(40)
             
-            table.slider(1, 120, effLength, a => {
+            table.slider(1, 120, 1, effLength, a => {
                 effLength = a
             }).get().setWidth(125)
             
