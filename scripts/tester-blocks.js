@@ -2,7 +2,6 @@
 let effLength = 20
 
 
-
 //Global tester variable.
 //Used for eval calls.
 global.testers = {
@@ -27,9 +26,8 @@ effectTester.buildType = () => {
                     global.testers.error = err
                 }
             }).size(40)
-            table.row()
             
-            table.slider(1, 120, 1, a => {
+            table.slider(1, 120, effLength, a => {
                 effLength = a
             }).get().setWidth(125)
             
