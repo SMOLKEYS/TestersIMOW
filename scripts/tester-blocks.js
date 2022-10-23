@@ -18,7 +18,7 @@ effectTester.buildType = () => {
             this.super$buildConfiguration(table)
             table.button(Icon.star, Styles.cleari, () => {
                 try{
-                    eval("global.testers.effectTesterFx = new Effect(" + this.effLength + ", e => {try{" + this.message + "}catch(er){Lines.circle(e.x, e.y, e.fin(Interp.pow10Out) * 30)}})")
+                    eval("global.testers.effectTesterFx = new Effect(" + this.effLength + ", e => {try{" + this.message + "}catch(er){Draw.color(Pal.remove); Lines.stroke(e.fout() * 5); Lines.circle(e.x, e.y, e.fin(Interp.pow10Out) * 30)}})")
                     global.testers.effectTesterFx.at(this.x, this.y)
                 }catch(err){
                     global.testers.error = err
