@@ -14,7 +14,7 @@ effectTester.buildType = () => {
         
         buildConfiguration(table){
             this.super$buildConfiguration(table)
-            table.button(Icon.star, () => {
+            table.button(Icon.star, Styles.cleari, () => {
                 try{
                     Vars.mods.scripts.runConsole("global.testers.effectTesterFx = new Effect(30, e => {" + this.message + "})")
                     global.testers.effectTesterFx.at(this.x, this.y)
