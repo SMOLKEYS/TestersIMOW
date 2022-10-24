@@ -81,4 +81,5 @@ scriptTester.buildType = () => {
        }
        
     })
+    return build
 }
