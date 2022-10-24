@@ -50,35 +50,16 @@ const scriptTester = extend(MessageBlock, "script-tester", {})
 scriptTester.buildType = () => {
     const build = extend(MessageBlock.MessageBuild, scriptTester, {
         
-        strCont: "",
-        errored: false,
-        
         buildConfiguration(table){
             this.super$buildConfiguration(table)
             table.button(Icon.wrench, Styles.cleari, () => {
                 try{
-                    if(this.strCont == this.message && this.errored) return
-                    this.strCont = this.message
                     eval(this.message)
-                    this.errored = false
                 }catch(err){
                     Vars.ui.showError(err.toString())
-                    this.errored = true
                 }
             })
-        },
-        
-       write(write) {
-           this.super$write(write)
-           write.str(this.strCont)
-           write.b(this.errored)
-       },
-
-       read(read, rev) {
-           this.super$read(read, rev)
-           this.strCont = read.str()
-           this.errored = read.b()
-       }
+        }
        
     })
     return build
