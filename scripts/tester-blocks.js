@@ -10,7 +10,7 @@ const effectTester = extend(MessageBlock, "effect-tester", {})
 
 //Effect tester build. Contains building code.
 effectTester.buildType = () => {
-    const build = extend(MessageBlock.MessageBuild, effectTester, {
+    const effbuild = extend(MessageBlock.MessageBuild, effectTester, {
         
         effLength: 20,
         
@@ -41,14 +41,14 @@ effectTester.buildType = () => {
         }
         
     })
-    return build
+    return effbuild
 }
 
 
 const scriptTester = extend(MessageBlock, "script-tester", {})
 
 scriptTester.buildType = () => {
-    const build = extend(MessageBlock.MessageBuild, scriptTester, {
+    const scrbuild = extend(MessageBlock.MessageBuild, scriptTester, {
         
         buildConfiguration(table){
             this.super$buildConfiguration(table)
@@ -56,11 +56,11 @@ scriptTester.buildType = () => {
                 try{
                     eval(this.message)
                 }catch(err){
-                    Vars.ui.showError(err.toString())
+                    Vars.ui.showException(err.toString())
                 }
-            })
+            }).size(40)
         }
        
     })
-    return build
+    return scrbuild
 }
