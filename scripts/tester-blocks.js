@@ -21,7 +21,7 @@ effectTester.buildType = () => {
                     eval("global.testers.effectTesterFx = new Effect(" + this.effLength + ", e => {try{" + this.message + "}catch(er){Draw.color(Pal.remove); Lines.stroke(e.fout() * 5); Lines.circle(e.x, e.y, e.fin(Interp.pow10Out) * 30); Fonts.def.draw(er.toString(), e.x, e.y + e.fin(Interp.pow3Out) * 15, Color.white, 0.24, false, 1)}})")
                     global.testers.effectTesterFx.at(this.x, this.y)
                 }catch(err){
-                    Vars.ui.showError(err.toString())
+                    Vars.ui.showException(err.toString())
                 }
             }).size(40)
             
